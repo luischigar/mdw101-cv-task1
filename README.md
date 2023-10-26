@@ -128,6 +128,19 @@ nothing to commit, working tree clean
 ```
 ![gitCheckout](img/gitCheckout.png)
 
+```
+    gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+```
+
 Con el otro comando me crea la rama pero me mantengo en la **main o master** o en la rama que estemo.
 
 ![gitBranch](img/gitBranch.png)
@@ -138,10 +151,86 @@ Este nos permite cambiarnos de rama
 
 ![gitramaCheckout](img/gitramaCheckout.png)
 
-Como funciona esto de las **ramas** a continuación se observa un pequeño grafico el cual del nodo **A** vendría siendo main o master el cual se desprenden nuevas ramas el cual podemos añadir código dependiendo del requerimiento.
+Como funciona esto de las **ramas** a continuación se observa un pequeño grafico el cual del nodo **A** vendría siendo main o master de el se desprenden nuevas ramas podemos podemos añadir código dependiendo del requerimiento.
 
 ```mermaid
 graph LR;
     A-->B;
     A-->C;
 ```
+
+Cuál es el objetivo de crear múltiples ramas es que los desarrolladores puedan trabajar simultáneamente sin intervenir en el trabajo del otro.
+
+- `git branch`
+
+Con `git branch` podemos ver todas las ramas que existen y además nos da la indicación en que rama nos encontramos ubicado.
+
+![gitBranch2](img/gitBranch2.png)
+
+- `git merge luischi/tarea-1`
+
+Este comando sirve para unir una rama dentro de otra.  
+Ya ejecutado nos dice que archivo se han agregado o han sufrido cambios.
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git merge luischi/tarea-1
+Updating 5f6b0cb..bfb22e2
+Fast-forward
+ index.js | 3 +++
+ 1 file changed, 3 insertions(+)
+ ```
+Hay que tener cuidado por que se da el caso de que en las diferentes ramas se trabajan con los mismos archivos o lineas y a la hora de unir aparecen conflictos tal como se muestra a continuación:
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git merge luischi/tarea2
+Auto-merging index.js
+CONFLICT (content): Merge conflict in index.js
+Automatic merge failed; fix conflicts and then commit the result.
+```
+Esto sucedió porque dos desarrolladores trabajaron en las mismas líneas, en el código podemos ver que la función multiply es la que ya teníamos o la que se agrego a master en el primer merge y cuando se hiso el segundo merge ocurrió el conflicto por que agrego en la misma línea otra función llamada divide.
+
+![codeConflict](img/codeConflict.png)
+
+Como se soluciona primero revisar si necesitamos los dos cambios después solucionar manual mente, también el visual code o cualquier otra herramienta o Ide nos pude ayudar aceptando que cambios queremos mantener o ambos.
+
+Si hacemos `git status` podemos ver que todavía aparece el conflicto. Después de eso lo agregamos con `git add .`
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   index.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Después del `git add .` le hacemos git status y nos pedirá que hagamos un `git commit`
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git add .
+
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   index.js
+```
+Automáticamente se nos abrirá un editor de consola el cual debemos guardarlo
+
+![editorConsola](img/editorConsola.png)
+
+Después de guardar se creará un nuevo **commit**
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git commit
+[master 9870458] Merge branch 'luischi/tarea2'
+```
+![commitLogMerge](img/commitLogMerge.png)
+
