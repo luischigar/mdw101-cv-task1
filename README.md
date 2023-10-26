@@ -264,7 +264,7 @@ Successfully rebased and updated refs/heads/luischi/tarea3.
 
  modificamos
 
-  ![rebase2](img/rebase2.png)
+![rebase2](img/rebase2.png)
 
 - `git stash`
 
@@ -337,4 +337,36 @@ Crea un commit para poder revertir un cambio que no estemos conforme
 C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git revert b75159a9cf65c135a9affe6f4312e424299a7038
 [master 24d2bcf] Revert "add tem"
  1 file changed, 3 deletions(-)
+```
+
+## Github
+
+Para esto debemos tener una cuenta creada en https://github.com/
+
+Después de crear la cuenta procedemos a crear un nuevo repositorio.
+
+![repogithub](img/repogithub.png)
+
+Después de crear el repositorio ya nos da ciertas pautas de lo que debemos hacer para poder subir el código, pero la mayoría de esas pautas ya la hemos hecho.
+
+![repogithub2](img/repogithub2.png)
+
+Procedemos a subir el código a partir de un repo local, para ello agregamos un remoto después se procedió a cambiar la rama por **main** y después el **push** para subir o empujar al repositorio en **github**.
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git remote add origin https://github.com/luischigar/my-first-repo.git
+
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git branch -M main
+
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git push -u origin main
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (23/23), 1.88 KiB | 641.00 KiB/s, done.
+Total 23 (delta 7), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (7/7), done.
+To https://github.com/luischigar/my-first-repo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
 ```
