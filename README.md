@@ -10,7 +10,7 @@
 Para comprobar la instalación ingresamos por **CMD** la siguiente línea de comando `git --version`  
 El cual nos dará la versión que disponemos por ejemplo `git version 2.42.0.windows.2` caso contrario dará error y se tendrá que hacer la instalación.
 
-A continuación, se detallará cada uno de los comandos de Git empezando por lo básico.
+A continuación, se detallará cada uno de los comandos de *Git* empezando por lo básico.
 
 ##  Git Basico
 
@@ -137,3 +137,11 @@ Con el otro comando me crea la rama pero me mantengo en la **main o master** o e
 Este nos permite cambiarnos de rama
 
 ![gitramaCheckout](img/gitramaCheckout.png)
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->A;
+    C-->A;
+```
