@@ -138,10 +138,10 @@ Este nos permite cambiarnos de rama
 
 ![gitramaCheckout](img/gitramaCheckout.png)
 
+Como funciona esto de las **ramas** a continuación se observa un pequeño grafico el cual del nodo **A** vendría siendo main o master el cual se desprenden nuevas ramas el cual podemos añadir código dependiendo del requerimiento.
+
 ```mermaid
-graph TD;
+graph TR;
     A-->B;
     A-->C;
-    B-->A;
-    C-->A;
 ```
