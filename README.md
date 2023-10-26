@@ -141,7 +141,7 @@ Este nos permite cambiarnos de rama
 Como funciona esto de las **ramas** a continuación se observa un pequeño grafico el cual del nodo **A** vendría siendo main o master el cual se desprenden nuevas ramas el cual podemos añadir código dependiendo del requerimiento.
 
 ```mermaid
-graph TR;
+graph LR;
     A-->B;
     A-->C;
 ```
