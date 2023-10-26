@@ -244,3 +244,97 @@ C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git commit
 ```
 ![commitLogMerge](img/commitLogMerge.png)
 
+## Git Avanzado
+
+- `git rebase`
+
+Sirve para reorganizar y modificar la estructura de un proyecto por ejemplo cambiar la descripción de un commit, ramas.  
+Por ejemplo, si creamos una nueva rama a partir de master y agregamos un commit tanto en la nueva rama como en master con el rebase podemos modificar la estructura y es como que la nueva rama se haya creado a partir del ultimo commit agregado de master
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git rebase master
+Successfully rebased and updated refs/heads/luischi/tarea3.
+```
+ `git rebase -i HEAD~2` o `git rebase -i dd3f048db34d1942e979be54523f792ac46d400a`
+
+ Si queremos cambiar la descripción del commit podemos usar cualquiera de los dos la diferencia es que uno es por **id** commit y el otro es por numero de commit  
+ Nos da una pequeña descripción de los comandos que podemos usar y la descripción del commit
+
+ ![rebase1](img/rebase1.png)
+
+ modificamos
+
+  ![rebase2](img/rebase2.png)
+
+- `git stash`
+
+Si no queremos subir código incompleto git nos da la opción de agregarlo a una pila y mantenerlo en ella hasta que deseamos terminar o usar el código
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git stash
+Saved working directory and index state WIP on (no branch): 60c54b1 uper
+```
+
+- `git stash list`
+
+Para ver los todo lo que he agregado a mi pila usamos `git stash list`
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git stash list
+stash@{0}: WIP on (no branch): 60c54b1 uper
+```
+
+- `git stash pop` o `git stash pop stash@{0}`
+
+Con este comando me trae los cambios de mi pila y los borra de ella al mismo tiempo, funcionamiento de pila o tambien con la ubicacion.
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git stash pop
+HEAD detached from refs/heads/luischi/tarea3
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index2.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (7f1237cfd2d67e29ef3d6e41205f37204dab81e2)
+```
+
+- `git stash apply stash@{0}`
+
+Este comando tiene el mismo funcionamiento que el pop pero este no lo borra de la lista
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git stash apply stash@{0}
+HEAD detached from refs/heads/luischi/tarea3
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index2.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+- `git checkout -- .`
+
+Con este comando me permite borrar todos los cambios sin opción de recuperar, a contrario del git stash que si lo puedo recuperar
+
+- `git cherry-pick 4cc956418f87fc63e7519af125dc15d67c3e609c`
+
+Este comando lo que hace es copiar un commit y pegarlo en otra rama, hay que tener en cuenta que esto se usa cuando estemos seguro que no se usara merge.
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git cherry-pick 4cc956418f87fc63e7519af125dc15d67c3e609c
+[master b75159a] add tem
+ Date: Thu Oct 26 00:15:31 2023 -0500
+ 1 file changed, 3 insertions(+)
+```
+- `git revert b75159a9cf65c135a9affe6f4312e424299a7038`
+
+Crea un commit para poder revertir un cambio que no estemos conforme
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git revert b75159a9cf65c135a9affe6f4312e424299a7038
+[master 24d2bcf] Revert "add tem"
+ 1 file changed, 3 deletions(-)
+```
