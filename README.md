@@ -135,6 +135,7 @@ nothing to commit, working tree clean
        branch luischi/tarea-1
        commit
        checkout master
+       commit
 ```
 
 Con el otro comando me crea la rama pero me mantengo en la **main o master** o en la rama que estemo.
