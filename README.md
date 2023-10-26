@@ -175,6 +175,20 @@ Fast-forward
  index.js | 3 +++
  1 file changed, 3 insertions(+)
  ```
+ 
+ ```mermaid
+  gitGraph
+    commit
+    commit
+    branch luischi/tarea-1
+    checkout luischi/tarea-1
+    commit
+    commit
+    checkout main
+    merge luischi/tarea-1
+    commit
+ ```
+
 Hay que tener cuidado por que se da el caso de que en las diferentes ramas se trabajan con los mismos archivos o lineas y a la hora de unir aparecen conflictos tal como se muestra a continuación:
 
 ```
