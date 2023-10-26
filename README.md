@@ -128,7 +128,7 @@ nothing to commit, working tree clean
 ```
 ![gitCheckout](img/gitCheckout.png)
 
-```
+```mermaid
     gitGraph
        commit
        commit
