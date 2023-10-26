@@ -134,7 +134,7 @@ nothing to commit, working tree clean
        commit
        branch luischi/tarea-1
        commit
-       checkout master
+       checkout main
        commit
 ```
 
