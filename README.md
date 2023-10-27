@@ -257,14 +257,35 @@ Successfully rebased and updated refs/heads/luischi/tarea3.
 ```
  `git rebase -i HEAD~2` o `git rebase -i dd3f048db34d1942e979be54523f792ac46d400a`
 
- Si queremos cambiar la descripción del commit podemos usar cualquiera de los dos la diferencia es que uno es por **id** commit y el otro es por numero de commit  
- Nos da una pequeña descripción de los comandos que podemos usar y la descripción del commit
+ Si queremos cambiar la descripción del commit podemos usar cualquiera de los dos la diferencia es que uno es por **id** commit y el otro es por numero de commit para este ejemplo usaremos `git rebase -i HEAD~2`  
+Ejecutado el comando nos da una pequeña descripción de los comandos que podemos usar y la lista de commit
 
- ![rebase1](img/rebase1.png)
+ ![rebaseHead](img/rebaseHead.png)
 
- modificamos
+ Procedemos a editar el mensaje del commit para ello lo hacemos de la siguiente manera.  
+ Seleccionamos el commit que queremos editar cambiamos la palabra **pick** por **r** el cual esta nos permite editar su mensaje
 
-![rebase2](img/rebase2.png)
+![rebaseHead2](img/rebaseHead2.png)
+
+Guardamos y automáticamente se nos habilita para modificar el commit
+
+![rebaseHead3](img/rebaseHead3.png)
+
+Editamos y guardamos
+
+![rebaseHead4](img/rebaseHead4.png)
+
+Comprobamos que se haya echo el cambio en el commit con el `git log`
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria\my-first-repo>git rebase -i HEAD~3
+[detached HEAD 4a54970] divide5 and prueba de rebase
+ Date: Thu Oct 26 20:01:25 2023 -0500
+ 1 file changed, 3 insertions(+)
+Successfully rebased and updated refs/heads/luischi/tarea3.
+```
+
+![rebaseHead5](img/rebaseHead5.png)
 
 - `git stash`
 
@@ -369,4 +390,18 @@ remote: Resolving deltas: 100% (7/7), done.
 To https://github.com/luischigar/my-first-repo.git
  * [new branch]      main -> main
 branch 'main' set up to track 'origin/main'.
+```
+- `git clone url`
+
+Si queremos clonar un repositorio podemos usar el `git clone url` el cual nos permitirá clonar el repo en nuestra maquina
+
+```
+C:\Users\LuisChi\Desktop\clase Maestria>git clone https://github.com/luischigar/mdw101-cv-task1.git
+Cloning into 'mdw101-cv-task1'...
+remote: Enumerating objects: 60, done.
+remote: Counting objects: 100% (60/60), done.
+remote: Compressing objects: 100% (45/45), done.
+Receiving objects:  75% (45/60)used 56 (delta 14), pack-reused 0
+Receiving objects: 100% (60/60), 888.33 KiB | 1.91 MiB/s, done.
+Resolving deltas: 100% (15/15), done.
 ```
